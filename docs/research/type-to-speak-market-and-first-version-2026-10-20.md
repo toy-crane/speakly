@@ -68,7 +68,7 @@
 ### 개발 방식
 
 - Expo에도 핵심 기능을 JavaScript에서 쓰게 해 주는 패키지가 있습니다. Callstack의 `@react-native-ai/apple`은 SpeechTranscriber와 Foundation Models를, `expo-ai`는 Foundation Models를, `expo-speech`는 AVSpeechSynthesizer를 감쌉니다.
-- 다만 이 앱에 꼭 필요한 일부 기능은 쓸 만한 패키지가 없어서 Swift로 직접 연결해야 합니다. `expo-speech`에는 개인 음성 권한 요청 기능이 없고, 무음 모드에서도 소리를 내려면 오디오 세션을 직접 설정해야 하며, Kokoro를 넣으려면 네이티브 모듈이 필요합니다. 또 `expo-ai`는 알파 버전이고, 음성 인식 패키지는 서드파티뿐입니다.
+- 다만 이 앱에 꼭 필요한 일부 기능은 쓸 만한 패키지가 없어서 Swift로 직접 연결해야 합니다. `expo-speech`에는 개인 음성 권한 요청 기능이 없고, Kokoro를 넣으려면 네이티브 모듈이 필요합니다. 무음 모드에서도 소리를 내는 설정은 `expo-audio`의 `setAudioModeAsync({ playsInSilentMode: true })`로 할 수 있습니다. 또 `expo-ai`는 알파 버전이고, 음성 인식 패키지는 서드파티뿐입니다.
 - Expo를 쓰면 얻는 가장 큰 이점은 화면과 결제 코드를 안드로이드와 함께 쓰는 것입니다. 안드로이드를 만들지 않기로 했으므로 이 이점이 사라집니다.
 - 듣기와 말하기가 번갈아 일어나는 앱이라 오디오 세션을 한곳에서 관리해야 합니다. 네이티브로 만들면 JavaScript와 Swift를 잇는 작업 없이 Apple 예제 코드를 그대로 쓸 수 있습니다.
 
@@ -149,5 +149,5 @@
 - [OpenAI 가격](https://developers.openai.com/api/docs/pricing), [Gemini API 가격](https://ai.google.dev/gemini-api/docs/pricing)
 - [음성 인식 비교(verliapp)](https://github.com/verliapp/stt-benchmark), [Whisper 논문](https://arxiv.org/pdf/2212.04356), [AssemblyAI 가격](https://www.assemblyai.com/pricing)
 - [RevenueCat State of Subscription Apps 2026](https://www.revenuecat.com/state-of-subscription-apps)
-- [Expo AI 문서](https://docs.expo.dev/versions/unversioned/sdk/ai/), [Expo Speech 문서](https://docs.expo.dev/versions/latest/sdk/speech/), [Callstack: React Native에서 Apple SpeechAnalyzer 쓰기](https://www.callstack.com/blog/on-device-speech-transcription-with-apple-speechanalyzer)
+- [Expo AI 문서](https://docs.expo.dev/versions/unversioned/sdk/ai/), [Expo Speech 문서](https://docs.expo.dev/versions/latest/sdk/speech/), [Expo Audio 문서](https://docs.expo.dev/versions/unversioned/sdk/audio/), [Callstack: React Native에서 Apple SpeechAnalyzer 쓰기](https://www.callstack.com/blog/on-device-speech-transcription-with-apple-speechanalyzer)
 - [Google SpeakFaster](https://research.google/blog/speakfaster-revolutionizing-communication-for-people-with-severe-motor-impairments/)
